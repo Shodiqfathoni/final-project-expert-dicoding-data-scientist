@@ -1,10 +1,10 @@
-# Proyek Akhir: Menyelesaikan Permasalahan Perusahaan Edutech
+# Proyek Akhir: Menyelesaikan Permasalahan institute jaya jaya maju
 
 ## Business Understanding
 Jaya Jaya Institut merupakan salah satu institusi pendidikan perguruan yang telah berdiri sejak tahun 2000. Hingga saat ini ia telah mencetak banyak lulusan dengan reputasi yang sangat baik.
 
 ### Permasalahan Bisnis
-jumlah dropout yang tinggi ini tentunya menjadi salah satu masalah yang besar untuk sebuah institusi pendidikan. Oleh karena itu, Jaya Jaya Institut ingin mendeteksi secepat mungkin siswa yang mungkin akan melakukan dropout sehingga dapat diberi bimbingan khusus.
+permasalahan dari institute jaya jaya maju adalah jumlah dropout yang tinggi bahkan mencapai 30% lebih, ini tentunya menjadi salah satu masalah yang besar untuk sebuah institusi pendidikan. Oleh karena itu peran kita sebagai data scientist dibutuhkan untuk membuat sebuah solusi atau alat yang bisa mendiagnosa awal untuk mengetahui mahasiswa mana yang terindikasi dropout sehingga pihak institut bisa mengambil langkah pencegahan berupa diberi arahan atau solusi sehingga dropout rate pada institute jaya jaya maju bisa berkurang 
 
 ### Cakupan Proyek
 1. memuat data 
@@ -15,7 +15,7 @@ jumlah dropout yang tinggi ini tentunya menjadi salah satu masalah yang besar un
 
 4. membuat model machine learning 
 
-5. mendeploy model machine learning ke streamlit cloud
+5. mendeploy model machine learning ke streamlit 
 
 ### Persiapan
 
@@ -23,37 +23,27 @@ Sumber data: "postgresql://postgres.zyjmkzlykunzxtxdxzio:cHBjk9uP9A3kC9lq@aws-0-
 
 Setup environment:
 
-1. mkdir final_project_expert_idcamp
+1. mkdir final_project_expert_idcamp2
 
-2. cd final_project_expert_idcamp
+2. cd final_project_expert_idcamp2
 
 3. pipenv install
 
 4. pipenv shell
 
-5. pip install numpy pandas scipy matplotlib seaborn jupyter sqlalchemy scikit-learn==1.2.2 joblib==1.3.1 streamlit==1.24.0 
-
-6. code .
+5. pip install -r requirements.txt 
 
 ## Business Dashboard
-dashboard yang saya buat membahas tentang apa yang mempengaruhi dropout rate pada institute ini sehingga menjadi tinggi, https://lookerstudio.google.com/reporting/bc0d61f2-4ce9-487c-9c86-1fb2cee140fd
+dashboard yang saya buat membahas tentang apa yang mempengaruhi dropout rate pada institute ini tapi sebelum itu saya harus membuat rumus dropout rate terlebih dahulu menggunakan rumus SUM(CASE WHEN Status = "Dropout" THEN 1 ELSE 0 END) / COUNT(Status),setelah itu baru saya bisa menganalisis seperti jurusan mana yang mempunyai dropoput tertinggi, diantara evening dan daytime ternyata mahasiswa yang kehadirannya evening terindikasi dropout, mahasiswa yang mempunyai hutang terindikasi dopout daripada yang tidak mempunyai hutang, kemudian apakah diantara mahasiswa pemegang beasiswa dan mahasiswa tidak pemegang beasiswa ternyata yang pemegang beasiswa justru dropratenya lebih rendah untuk selengkapnya bisa akses https://lookerstudio.google.com/reporting/bc0d61f2-4ce9-487c-9c86-1fb2cee140fd
 
 ## Menjalankan Sistem Machine Learning
-1. mengupload semua berkas model ke github milik kita yaitu data preprocessing.py, graduation_analysis_app.py, pip file, pip file.lock,    prediction.py, requirements.txt
+ada dua cara untuk menjalankan machine learning yaitu local maupun cloud
 
-2. login ke akun streamlit cloud 
+1.menjalankan machine learning secara lokal dimulai dengan cara memilih berkas graduation_analysis_app.py, kemudian run code tersebut nanti di terminal akan mucul Warning: to view this Streamlit app on a browser, run it with the following command,setelah itu ikuti command yang ditunjukkan oleh warning tersebut dan run command tersebut di terminal,kemudian akan muncul tulisan local url dan juga network url,kemudian pilih local url,kemudian anda akan muncul sebuah app prediksi
 
-3. cari creat app
+2.menjalankan machine learning lewat cloud anda harus mempunyai akun streamlit cloud dan github kemudian deploy lewat creat app isi apa saja yang diminta oleh creat app kemudian pencet deploy dan tunggu hingga proses selesai,nanti akan muncul di bagian your app untuk menjalankannya tinggal klik app yang baru dibuat tadi atau bisa langsung mengakses link ini: https://final-project-idcamp-h6tcq3kfn83lp96h2gub4h.streamlit.app/
 
-4. pilih repository github yang memuat semua berkas model kita tadi
-
-5. branch - main
-
-6. main file path kita pilih -graduation_analysis_app.py
-
-7. tekan tombol deploy 
-
-8. untuk lebih lengkapnya bisa dilihat pada link ini: https://final-project-idcamp-h6tcq3kfn83lp96h2gub4h.streamlit.app/
+3.cara menggunakan prototype tersebut cukup mudah,anda hanya perlu memilih parameter yang anda inginkan sudah tersedia dimasing masing kolom tersebut,jika sudah memilih parameter tersebut kemudian pada bagian bawah ada view the raw data,ini adalah tampilan parameter anda yang sudah dipilih dari kolom yang diatas, silahkan periksa apakah data yang tercantum di view raw data tersebut sesuai dengan pilihan anda,kemudian tekan predict dan data yang tadi anda pilih akan diproses, anda bisa melihat prosesnya di kolom view preprocesed data kemudian paling bawah akan muncul status prediction salah satu dari graduate,enrolled,dan dropout kemudian tahapan pun selesai
 
 ## Conclusion
 kesimpulan dari hasil analisis proyek ini adalah dropout rate yang tinggi disebabkan banyak faktor tapi faktor yang paling penting yaitu mahasiswa yang mempunyai hutang cenderung untuk dropout dan juga mahasiswa yang mempunyai hutang menjadi penyumbang tinggi dropout rate untuk itu kampus harus lebih memperhatikan mahasiswa yang mempunyai hutang agar bisa menekan angka dropout rate
